@@ -1,0 +1,123 @@
+Speed = {
+    "25",
+  "50",
+  "100",
+  "150",
+  "200",
+  "250"
+}
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Crimson Hub Project 2", _G.theme)
+local Tab = Window:NewTab("Main")
+local Section = Tab:NewSection("Cheat")
+Section:NewButton("Instant Money", " ", function()
+
+loadstring(game:HttpGet('https://rawscripts.net/raw/My-Restaurant!-Fast-Autofarm-4610'))()
+
+end)
+
+local Section = Tab:NewSection("Npc WalkSpeed")
+
+local Npcwspeed = Section:NewDropdown("Select Npc Speed", "Click To Select", Speed, function(Npcwalkspeed)
+   Speed = Npcwalkspeed
+end)
+
+Section:NewToggle("Npc Speed", " ", function(state)
+    if state then
+        NPCSP = state
+while NPCSP == true do
+wait()
+local npc = game:GetService("Workspace").__THINGS.BAKERIES
+
+for _,v in pairs(npc:GetDescendants()) do
+if v.Name == "Humanoid" then
+
+v.WalkSpeed = Speed
+    
+
+end
+end
+end
+    else
+
+    NPCSP = state
+
+ print('Repeat Stopped')
+wait()
+
+
+end
+end)
+
+local Section = Tab:NewSection("Teleport To Gift")
+
+Section:NewButton("Goto Gift", " ", function()
+    
+local gif = game:GetService("Workspace").__DEBRIS.SantaPresent.SantaPresent
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gif.CFrame
+
+end)
+
+local Section = Tab:NewSection("Local Player")
+
+Section:NewSlider("Walk Speed", "Speed Cheat", 1000, 0, function(speed)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+end)
+
+Section:NewSlider("Jump Power", "Jump Cheat", 1000, 0, function(jump)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jump
+end)
+
+Section:NewSlider("Hip Height", "Jump Cheat", 1000, 0, function(hip)
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = hip
+end)
+
+local Section = Tab:NewSection("Server")
+
+Section:NewButton("Rejoin", "Rejoin Server", function()
+
+local TeleportService = game:GetService("TeleportService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Rejoin = coroutine.create(function()
+    local Success, ErrorMessage = pcall(function()
+        TeleportService:Teleport(game.PlaceId, LocalPlayer)
+    end)
+
+    if ErrorMessage and not Success then
+        warn(ErrorMessage)
+    end
+end)
+
+coroutine.resume(Rejoin)  
+
+end)
+
+Section:NewButton("Hop Server", "Hop to low server", function()
+
+    wait ()
+local Servers = game.HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/3237168/servers/Public?sortOrder=Asc&limit=100"))
+for i,v in pairs(Servers.data) do
+  if v.playing ~= v.maxPlayers then
+      game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, v.id)
+  end
+end
+end)
+
+Section:NewButton("Alt Del", "Delete!!!!", function()
+local Plr = game:GetService("Players").LocalPlayer
+local Mouse = Plr:GetMouse()
+
+Mouse.Button1Down:connect(function()
+if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftAlt) then return end
+if not Mouse.Target then return end
+Mouse.Target:Destroy()
+end)
+end)
+
+Section:NewKeybind(" ", " ", Enum.KeyCode.RightControl, function()
+	Library:ToggleUI()
+end)
