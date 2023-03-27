@@ -17,6 +17,13 @@ loadstring(game:HttpGet('https://rawscripts.net/raw/My-Restaurant!-Fast-Autofarm
 
 end)
 
+Section:NewButton("System exodus", " ", function()
+
+loadstring(game:HttpGet("https://system-exodus.com/scripts/MyRestaurant/MyRestaurant.lua", true))()
+
+end)
+
+
 local Section = Tab:NewSection("Npc WalkSpeed")
 
 local Npcwspeed = Section:NewDropdown("Select Npc Speed", "Click To Select", Speed, function(Npcwalkspeed)
@@ -60,6 +67,7 @@ game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gif.CFrame
 
 end)
 
+local Tab = Window:NewTab("Player")
 local Section = Tab:NewSection("Local Player")
 
 Section:NewSlider("Walk Speed", "Speed Cheat", 1000, 0, function(speed)
