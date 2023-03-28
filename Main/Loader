@@ -1,5 +1,7 @@
+
 Speed = {    
-"20",
+    "18",
+    "20",
     "25",
   "50",
   "100",
@@ -58,7 +60,97 @@ wait()
 end
 end)
 
-local Section = Tab:NewSection("Teleport To Gift")
+local Section = Tab:NewSection("AntiAfk Mobile")
+
+Section:NewToggle("Antiafk Chat Spam", " ", function(state)
+    if state then
+        Antiafk = state
+while Antiafk == true do
+local randomnumber = math.random(0, 5)
+    wait()
+if randomnumber == 0 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm Afk Cannot Respond", "All")
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+elseif randomnumber == 1 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("I'm in toilet or else", "All")
+
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+elseif randomnumber == 2 then
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("be quiet sleeping", "All")
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+elseif randomnumber == 3 then
+    
+game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("maybe i get huge today", "All")
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+elseif randomnumber == 4 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("plz huge", "All")
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+elseif randomnumber == 5 then
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(".....................", "All")
+function clickscreen()
+    local virtualUser = game:GetService('VirtualUser')
+    virtualUser:CaptureController()
+    virtualUser:ClickButton1(Vector2.new(995, 140))
+    
+
+end
+clickscreen()
+wait(_G.cooldown)
+end
+end
+    else
+
+    Antiafk = state
+
+ print('Repeat Stopped')
+wait()
+
+
+end
+end)
+
+local Section = Tab:NewSection("Teleport Gift")
 
 Section:NewButton("Goto Gift", " ", function()
     
@@ -66,6 +158,19 @@ local gif = game:GetService("Workspace").__DEBRIS.SantaPresent.SantaPresent
 
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = gif.CFrame
 
+end)
+
+Section:NewButton("Bring Gifts", " ", function()
+    
+local gif = game:GetService("Workspace").__DEBRIS.SantaPresent.SantaPresent
+
+for _,v in pairs(gif:GetDescendants()) do
+if v.Name == "ParticleEmitter" then
+
+v.Parent.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+
+end
+end
 end)
 
 local Tab = Window:NewTab("Player")
